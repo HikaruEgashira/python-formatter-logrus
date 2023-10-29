@@ -1,26 +1,19 @@
-[project]
-name = "py-template"
+[tool.poetry]
+name = "formatter-logrus"
 version = "0.1.0"
-description = "Add a short description here"
-authors = []
-dependencies = [
-    "pip>=23.2.1",
-]
-requires-python = ">= 3.9"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "pytest>=7.4.0",
-    "ipykernel>=6.25.1",
-]
-
-[tool.hatch.metadata]
-allow-direct-references = true
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 select = [
@@ -52,10 +45,10 @@ ignore = [
     "ANN101", # missing-type-self: because no type hint is attached to the argument self
     "ANN102", # missing-type-cls: because no type hint is attached to the argument cls
     "ANN003", # Missing type annotation for **{name}
+    "S101", # Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
 ]
 unfixable = ["F401", "F841", "E401"]
 exclude = [".venv"]
-target-version = ["py39", "py310", "py311"]
 line-length = 119
 
 [tool.black]
